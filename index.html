@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xingyue Light | Full Spectrum Eye-Care Desk Lamp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+        }
+        body {
+            color: #1f2937;
+            background-color: #fafbfc;
+            line-height: 1.7;
+        }
+        /* 导航栏 */
+        header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(22px);
+            padding: 1.2rem 6%;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.07);
+        }
+        .nav-wrap {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            color: #0f172a;
+            font-size: 30px;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        .logo span {
+            color: #f59e0b;
+            font-weight: 400;
+        }
+        nav ul {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+        nav a {
+            color: #475569;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            padding: 11px 16px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background: #fff7ed;
+            color: #d97706;
+            transform: translateY(-2px);
+        }
+        /* 横幅模块（重点优化，图片突出） */
+        .banner {
+            width: 100%;
+            min-height: 92vh;
+            /* 指定横幅图 */
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(30, 41, 59, 0.70)),
+                        url('./img/e6b8a1238.jpg') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: white;
+        }
+        .banner-text {
+            max-width: 720px;
+            position: relative;
+            z-index: 2;
+        }
+        .banner-text h1 {
+            font-size: 62px;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
+        .banner-text p {
+            font-size: 20px;
+            line-height: 1.9;
+            margin-bottom: 42px;
+            color: #e2e8f0;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.2);
+        }
+        .btn {
+            padding: 18px 42px;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 17px;
+            box-shadow: 0 12px 35px rgba(245, 158, 11, 0.38);
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(245, 158, 11, 0.48);
+        }
+        /* 通用板块 */
+        .section {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 110px 6%;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            color: #0f172a;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            width: 90px;
+            height: 6px;
+            background: linear-gradient(90deg, #d97706, #f59e0b);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -18px;
+            border-radius: 4px;
+        }
+        /* 双栏布局 */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+        .two-col img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 10px 36px rgba(0, 0, 0, 0.13);
+            transition: transform 0.3s ease;
+        }
+        .two-col img:hover {
+            transform: scale(1.02);
+        }
+        .two-col h3 {
+            font-size: 32px;
+            color: #0f172a;
+            margin-bottom: 24px;
+        }
+        .two-col p {
+            line-height: 1.9;
+            color: #475569;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        /* 产品卡片网格 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 52px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.09);
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-14px);
+            box-shadow: 0 20px 48px rgba(245, 158, 11, 0.20);
+        }
+        .product-img {
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 30px;
+        }
+        .product-info h3 {
+            font-size: 25px;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+        .product-info p {
+            color: #64748b;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        .feature-tag {
+            display: inline-block;
+            background: #fff7ed;
+            color: #d97706;
+            padding: 9px 18px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-right: 12px;
+            margin-bottom: 14px;
+        }
+        /* 团队卡片 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 45px;
+        }
+        .team-card {
+            text-align: center;
+            background: white;
+            padding: 40px 26px;
+            border-radius: 24px;
+            box-shadow: 0 8px 28px rgba(245, 158, 11, 0.13);
+            transition: all 0.3s;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        .team-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 22px;
+            border: 6px solid #fff7ed;
+        }
+        .team-card h4 {
+            font-size: 23px;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+        .team-card span {
+            color: #d97706;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+        /* 页脚 */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 52px 6%;
+            margin-top: 80px;
+        }
+        footer p {
+            line-height: 1.9;
+            font-size: 15px;
+        }
+        /* 页面切换 */
+        .page-block {
+            display: none;
+        }
+        .page-block.active {
+            display: block;
+        }
+        /* 移动端适配 */
+        @media (max-width: 992px) {
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+            .banner-text h1 {
+                font-size: 44px;
+            }
+            nav ul {
+                gap: 0.8rem;
+            }
+            nav a {
+                font-size: 13px;
+                padding: 8px 10px;
+            }
+            .section-title {
+                font-size: 30px;
+            }
+        }
+        @media (max-width: 576px) {
+            .banner {
+                min-height: 80vh;
+            }
+            .banner-text h1 {
+                font-size: 34px;
+            }
+            .banner-text p {
+                font-size: 17px;
+            }
+            .nav-wrap {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-wrap">
+            <a href="#home" class="logo">Xingyue <span>Light</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home" onclick="switchPage('home')">Home</a></li>
+                    <li><a href="#rd" onclick="switchPage('rd')">R&D</a></li>
+                    <li><a href="#product" onclick="switchPage('product')">Products</a></li>
+                    <li><a href="#company" onclick="switchPage('company')">Company</a></li>
+                    <li><a href="#service" onclick="switchPage('service')">Support</a></li>
+                    <li><a href="#news" onclick="switchPage('news')">News</a></li>
+                    <li><a href="#join" onclick="switchPage('join')">Join Us</a></li>
+                    <li><a href="#team" onclick="switchPage('team')">Team</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- 首页 -->
+    <section id="home" class="page-block active">
+        <div class="banner">
+            <div class="banner-text">
+                <h1>Full Spectrum Eye-Care Desk Lamp Series</h1>
+                <p>Xingyue Light provides professional intelligent lighting solutions for students, readers and office workers. Our full-spectrum, flicker-free low blue light lamps effectively relieve eye fatigue during long-hour study and work, creating a healthy and comfortable light environment for every young learner.</p>
+                <a href="#product" class="btn" onclick="switchPage('product')">Discover Our Lamps</a>
+            </div>
+        </div>
+        <div class="section">
+            <h2 class="section-title">Our Brand Vision</h2>
+            <div class="two-col">
+                <div>
+                    <!-- 首页品牌愿景图 -->
+                    <img src="./img/8d6d33.jpg" alt="Xingyue Light brand vision poster">
+                </div>
+                <div>
+                    <h3>Soft & Natural Light for All Study Scenarios</h3>
+                    <p>Xingyue Light adheres to four core standards: Innovation, Eye-Care, Practicality and Premium Quality. We deeply explore the eye strain problems caused by poor lighting for students who stay up late to study, read textbooks and finish homework every day.</p>
+                    <p>Our product line covers portable clip-on lamps and desktop full-size eye-care lamps, perfectly matching dormitory beds, student desks, bedroom reading corners and office workstations. Built-in AI ambient light sensor automatically adjusts brightness and color temperature, delivering mild, glare-free lighting to protect teenagers’ vision health long-term.</p>
+                    <a href="#product" class="btn" onclick="switchPage('product')">View All Products</a>
+                </div>
+            </div>
+            <!-- 校园公益配图板块 额外扩充 -->
+            <div class="section" style="padding-top:80px;">
+                <h2 class="section-title">Campus Eye-Care Public Welfare</h2>
+                <div class="two-col">
+                    <div>
+                        <img src="./img/3c38c0.jpg" alt="Campus eye protection public welfare activity">
+                    </div>
+                    <div>
+                        <h3>Promote Healthy Lighting Habits Among Students</h3>
+                        <p>We cooperate with primary and secondary schools to carry out campus eye care lectures, distribute eye-care lighting guides and provide trial lamps for students with myopia tendency. Our public welfare activities aim to help teenagers recognize the harm of poor lighting and develop scientific reading habits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 研发创新页面 -->
+    <section id="rd" class="page-block">
+        <div class="section">
+            <h2 class="section-title">R&D & Optical Innovation System</h2>
+            <!-- 研发办公图1 -->
+            <div class="two-col" style="margin-bottom: 90px;">
+                <div>
+                    <img src="./img/6890ddf75.jpg" alt="R&D team daily office scene">
+                </div>
+                <div>
+                    <h3>User Research · Optical Design · Human Ergonomics</h3>
+                    <p>Our professional R&D team consists of optical engineers, ergonomic product designers and ophthalmic health researchers. We collect tens of thousands of real student study scenarios to optimize lamp height, light angle, spectrum parameters and clamping structure, eliminating the common defects of traditional desk lamps such as stroboscopic light, high blue light and uneven illumination.</p>
+                    <p>Every prototype undergoes hundreds of brightness, color temperature and spectrum tests before mass production to ensure stable eye-friendly performance under long-term use.</p>
+                </div>
+            </div>
+            <!-- 研发办公图2 -->
+            <div class="two-col" style="margin-bottom:90px;">
+                <div>
+                    <img src="./img/d149126451b.jpg" alt="Indoor lamp scene shooting for R&D test">
+                </div>
+                <div>
+                    <h3>Scene Simulation & Light Effect Calibration</h3>
+                    <p>Our laboratory simulates various indoor light environments such as cloudy daytime, evening dim light and bedroom night light to repeatedly calibrate the light output of each lamp model, ensuring consistent soft light effect under different ambient brightness.</p>
+                </div>
+            </div>
+            <!-- AI调光原理图 -->
+            <div class="two-col" style="margin-bottom: 90px; flex-direction: row-reverse;">
+                <div>
+                    <h3>AI Adaptive Intelligent Dimming Principle</h3>
+                    <p>A high-precision built-in light sensor captures real-time ambient light intensity. The internal microchip analyzes the brightness difference and automatically adjusts the lamp’s luminous flux and color temperature in real time without manual operation.</p>
+                    <p>The lamp brightens automatically on dark cloudy days and turns soft warm light at night, greatly reducing eye burden during long reading and homework sessions.</p>
+                </div>
+                <div>
+                    <img src="./img/dcae47dc25.jpg" alt="AI adaptive dimming principle diagram">
+                </div>
+            </div>
+            <!-- 研发测试图 -->
+            <div class="two-col">
+                <div>
+                    <img src="./img/d575945da08.jpg" alt="Spectrum aging and quality testing">
+                </div>
+                <div>
+                    <h3>Strict Multi-Dimensional Quality Inspection Standard</h3>
+                    <p>All finished lamps pass three major professional testing procedures: brightness uniformity test, full-spectrum blue light analysis, and 720-hour continuous aging stability test.</p>
+                    <p>All optical indicators fully comply with national standards for student reading lamps, reaching RG0 zero-level low blue light and zero visible stroboscopic standard, suitable for long-term use by primary and secondary students, postgraduate candidates and office staff.</p>
+                </div>
+            </div>
+            <!-- 团队研讨图 -->
+            <div class="section" style="padding-top:80px;">
+                <h2 class="section-title">Team Research & Discussion</h2>
+                <div class="two-col">
+                    <div>
+                        <img src="./img/0481b5e17cd.jpg" alt="R&D team meeting discussion">
+                    </div>
+                    <div>
+                        <h3>Continuous Iteration Based On User Feedback</h3>
+                        <p>Our R&D team holds weekly product optimization meetings, sorting out feedback collected from student users, campus trials and after-sales consultation, and continuously optimizing lamp structure, light effect and power supply mode to upgrade product experience generation by generation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 产品页面 -->
+    <section id="product" class="page-block">
+        <div class="section">
+            <h2 class="section-title">Core Eye-Care Lamp Products</h2>
+            <!-- 产品主图 -->
+            <div class="two-col" style="margin-bottom: 90px;">
+                <div>
+                    <img src="./img/6a3faf786.jpg" alt="Clip-on eye-care lamp main product poster">
+                </div>
+                <div>
+                    <h3>Space-Saving Clip-On Lamp Designed For Dormitories</h3>
+                    <p><span class="feature-tag">3 Adjustable Brightness Modes</span><span class="feature-tag">RG0 Low Blue Light</span><span class="feature-tag">Magnetic Detachable Lamp Head</span></p>
+                    <p>The innovative clip base takes zero desktop space and can be firmly fixed on dorm bunk beds, writing desks, book shelves and study tables. Universal Type-C power supply supports power banks, laptops and wall chargers, perfectly matching dormitory low-voltage power supply limits.</p>
+                </div>
+            </div>
+            <!-- 功能拆解图 -->
+            <div class="two-col" style="margin-bottom: 90px; flex-direction: row-reverse;">
+                <div>
+                    <h3>Complete Core Function Breakdown</h3>
+                    <p>1. Three independent lighting modes: Clear Study, Comfort Daily Mode, Soft Night Reading Mode.<br>2. RG0 low blue light full-spectrum LED beads to reduce retinal stimulation.<br>3. Magnetic lamp head design for easy disassembly, storage and carrying.<br>4. Universal Type-C power interface for flexible daily power supply.</p>
+                </div>
+                <div>
+                    <img src="./img/d179a710d65.jpg" alt="Lamp internal function structure breakdown">
+                </div>
+            </div>
+            <!-- 三档灯光图 -->
+            <div class="two-col" style="margin-bottom: 90px;">
+                <div>
+                    <img src="./img/1bf28896.jpg" alt="Three adjustable light mode comparison">
+                </div>
+                <div>
+                    <h3>Three Light Modes For All Learning Scenarios</h3>
+                    <p><strong>Clear Mode:</strong> High-bright neutral white light, specially for exam review, homework writing and fine reading tasks.<br><strong>Comfort Mode:</strong> Balanced natural daylight tone for daily reading and online classes.<br><strong>Night Mode:</strong> Gentle warm dim light for bedtime reading and midnight revision without dazzling eyes.</p>
+                </div>
+            </div>
+            <!-- 全光谱图 -->
+            <div class="two-col">
+                <div>
+                    <h3>Full-Spectrum Light Close To Natural Sunlight</h3>
+                    <p>Our customized full-spectrum LED beads simulate the spectrum of natural outdoor daylight, greatly improving reading comfort under indoor artificial light.</p>
+                    <p>Four core eye-care advantages: RG0 zero-level blue light protection, high-frequency flicker-free lighting, uniform light diffusion without dark spots on books, high color rendering index for drawing and text reading.</p>
+                </div>
+                <div>
+                    <img src="./img/629ff4b5.jpg" alt="Full spectrum light principle comparison chart">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 品牌介绍页面 -->
+    <section id="company" class="page-block">
+        <div class="section">
+            <h2 class="section-title">Brand Development Timeline</h2>
+            <!-- 品牌历程图 -->
+            <div class="two-col">
+                <div>
+                    <img src="./img/89db678ad0.jpg" alt="Xingyue Light brand development timeline">
+                </div>
+                <div>
+                    <h3>From Original Idea To Mature Eye-Care Lighting Brand</h3>
+                    <p><strong>Brand Establishment:</strong> Focus on student eye-care lighting track, conduct large-scale research on teenagers’ daily lighting pain points such as uneven light and dazzling desk lamps.</p>
+                    <p><strong>Product Initiation:</strong> Build independent optical laboratory, start R&D of full-spectrum low blue light student desk lamps.</p>
+                    <p><strong>Prototype Testing:</strong> Invite thousands of middle and primary school students to participate in real-scene light experience tests, iteratively optimize lamp structure and light effect.</p>
+                    <p><strong>Official Launch:</strong> Xingyue Light full series eye-care lamps officially released, covering campus, family and office multi-scene markets.</p>
+                </div>
+            </div>
+            <!-- 快速了解品牌配图 -->
+            <div class="section" style="padding-top:80px;">
+                <h2 class="section-title">Quick Introduction To Xingyue Light</h2>
+                <div class="two-col">
+                    <div>
+                        <img src="./img/158e7b87f34.jpg" alt="Quick overview of brand introduction">
+                    </div>
+                    <div>
+                        <h3>Focus On Teenagers’ Vision Health For Long Term</h3>
+                        <p>Xingyue Light never follows the low-cost inferior lighting market. We insist on investing heavily in optical research every year, taking students’ actual study needs as the core of product development, and continuously upgrading portable, healthy and cost-effective eye-care lighting products.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 售后支持页面 -->
+    <section id="service" class="page-block">
+        <div class="section">
+            <h2 class="section-title">Comprehensive After-Sales Support System</h2>
+            <!-- FAQ图 -->
+            <div class="two-col" style="margin-bottom: 90px;">
+                <div>
+                    <img src="./img/1c1e156199.jpg" alt="FAQ common problem user guide">
+                </div>
+                <div>
+                    <h3>Self-Service Quick Help Center</h3>
+                    <p>We provide a complete illustrated FAQ user manual to help users solve common use problems without waiting for customer service reply.</p>
+                    <p>Main content covers lamp failure troubleshooting, magnetic base installation tutorial, difference between three light modes, power supply matching suggestions, lamp cleaning and storage operation skills.</p>
+                </div>
+            </div>
+            <!-- 售后流程图 -->
+            <div class="two-col" style="margin-bottom:90px; flex-direction: row-reverse;">
+                <div>
+                    <h3>Standardized After-Sales Service Process</h3>
+                    <p>1. Submit service request: Contact online customer service with product fault photos and order information.<br>2. Professional confirmation: Service staff identify the fault type to distinguish quality defects or man-made damage.<br>3. Targeted solution: Free repair or replacement within warranty period, with detailed product return and shipping instructions provided.</p>
+                    <p>All Xingyue Light desk lamps enjoy official 3-year quality warranty and 7-day free return policy to fully protect every customer’s shopping experience.</p>
+                </div>
+                <div>
+                    <img src="./img/ee3d4148f11.jpg" alt="After-sales service flow chart">
+                </div>
+            </div>
+            <!-- 质保说明配图 -->
+            <div class="two-col">
+                <div>
+                    <img src="./img/031eb5b27f4.jpg" alt="Official warranty service statement">
+                </div>
+                <div>
+                    <h3>Official Warranty Policy Statement</h3>
+                    <p>Our official warranty covers all non-artificial damage faults including light bead failure, sensor failure and power supply breakdown. We provide free parts replacement and maintenance service without extra labor fees within the warranty period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 品牌资讯页面（移除品牌新闻图5b4c83f5cf36781232e7b7081b11a0a9.jpg，只保留文字） -->
+    <section id="news" class="page-block">
+        <div class="section">
+            <h2 class="section-title">Brand News & Industry Trends</h2>
+            <div class="two-col">
+                <div style="grid-column: 1 / -1;">
+                    <h3>Grow Together With Students & Education Industry</h3>
+                    <p>We continuously iterate product performance based on student usage feedback, eye health research reports and campus learning scenarios. Our brand also actively participates in campus eye protection public welfare lectures, student product trial programs and vision science popularization campaigns to spread scientific healthy lighting knowledge to young people.</p>
+                </div>
+            </div>
+            <!-- 行业动态配图 -->
+            <div class="two-col" style="padding-top:80px;">
+                <div>
+                    <img src="./img/80e4fe10.jpg" alt="Eye-care lighting industry trend analysis">
+                </div>
+                <div>
+                    <h3>Latest Trends Of Student Eye-Care Lighting Industry</h3>
+                    <p>With the rising attention to juvenile myopia prevention, full-spectrum low blue light intelligent desk lamps have become the mainstream demand of the market. Xingyue Light keeps tracking the latest optical technology and industry standards to maintain product leading performance in the student lighting track.</p>
+                </div>
+            </div>
+            <!-- 项目成果总结 -->
+            <div class="section" style="padding-top:80px;">
+                <h2 class="section-title">Project Development & Achievement Summary</h2>
+                <div class="two-col">
+                    <div>
+                        <img src="./img/bed144b4530.jpg" alt="Project overall achievement report">
+                    </div>
+                    <div>
+                        <h3>Complete R&D & Production Closed-Loop Project</h3>
+                        <p>From early market research, optical prototype development, student scene testing to mass production and after-sales service, Xingyue Light has built a complete closed-loop industrial chain project, independently controlling every link of product quality to ensure stable eye-care performance of each lamp delivered to users.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 项目开发过程 -->
+            <div class="section" style="padding-top:80px;">
+                <h2 class="section-title">Whole Project Development Process</h2>
+                <div class="two-col">
+                    <div>
+                        <img src="./img/1fa031dbd0.jpg" alt="Whole project development process diagram">
+                    </div>
+                    <div>
+                        <h3>Multi-Stage Strict Project Iteration Process</h3>
+                        <p>Our product development is divided into market research, scheme design, optical prototype trial production, user testing, mass production optimization and after-sales iteration six stages, each stage with strict evaluation standards to avoid product defects flowing into the market.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 招聘页面 -->
+    <section id="join" class="page-block">
+        <div class="section">
+            <h2 class="section-title">Join Our Xingyue Light Team</h2>
+            <!-- 招贤纳士主图 -->
+            <div class="two-col" style="margin-bottom:90px;">
+                <div>
+                    <img src="./img/0ef2294.jpg" alt="Xingyue Light recruitment poster">
+                </div>
+                <div>
+                    <h3>We Recruit Talents Who Care About Teenagers’ Eye Health</h3>
+                    <p>We welcome passionate team members who are interested in optical technology, student product design and intelligent lighting industry. Our team provides complete training system, clear promotion channels and welfare benefits for all new employees.</p>
+                    <p>Open recruitment positions: Optical R&D Engineer, Product Operation Specialist, Online Customer Service Specialist, Web Visual Design Assistant.</p>
+                    <p>Send your resume to hr@xingyuelight.com and join us to develop safer, more comfortable eye-care lighting products for global students.</p>
+                </div>
+            </div>
+            <!-- 人才成长体系 -->
+            <div class="two-col" style="margin-bottom:90px; flex-direction: row-reverse;">
+                <div>
+                    <h3>Complete Talent Growth Training System</h3>
+                    <p>We build a three-level talent training system including new staff induction training, professional skill improvement training and management reserve training, helping every employee quickly grow into professional core talents in the lighting industry.</p>
+                </div>
+                <div>
+                    <img src="./img/1b11a0a9.jpg" alt="Enterprise talent growth system diagram">
+                </div>
+            </div>
+            <!-- 简历投递方式 -->
+            <div class="two-col">
+                <div>
+                    <img src="./img/adb1f58b.jpg" alt="Resume delivery guide">
+                </div>
+                <div>
+                    <h3>Standard Resume Delivery Method</h3>
+                    <p>Please edit your resume with personal work experience, professional skills and self-introduction, send it to our official recruitment mailbox hr@xingyuelight.com, our HR team will review and arrange interviews within 3 working days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 开发团队页面（替换4人：林翔生、石卓成、罗尉、韦家吉） -->
+    <section id="team" class="page-block">
+        <div class="section">
+            <h2 class="section-title">Website Development Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img class="team-avatar" src="./img/3c38c32b82c36fda558b401faa024a60.jpg" alt="Lin Xiangsheng">
+                    <h4>Lin Xiangsheng</h4>
+                    <span>Homepage Layout & Product Page Design<br>Overall UI Style Optimization</span>
+                </div>
+                <div class="team-card">
+                    <img class="team-avatar" src="./img/1faa8088e48d18d48ff6df3031dbd6.jpg" alt="Shi Zhuocheng">
+                    <h4>Shi Zhuocheng</h4>
+                    <span>R&D & Company Page Production<br>Brand Timeline Content Arrangement</span>
+                </div>
+                <div class="team-card">
+                    <img class="team-avatar" src="./img/de74323fc5b5a4c4ff2eb9d56a3faf786.jpg" alt="Luo Wei">
+                    <h4>Luo Wei</h4>
+                    <span>After-Sales Support Page<br>FAQ & Service Process Content Writing</span>
+                </div>
+                <div class="team-card">
+                    <img class="team-avatar" src="./img/064498ad1720f5252b96a031eb5b27f4.jpg" alt="Wei Jiaji">
+                    <h4>Wei Jiaji</h4>
+                    <span>Team Page & Recruitment Module<br>Global English Text Revision</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2026 Xingyue Light Technology Co., Ltd. All rights reserved.</p>
+        <p>Official Cooperation Email: contact@xingyuelight.com | Professional Full Spectrum Eye-Care Lighting For Students Worldwide</p>
+    </footer>
+    <script>
+        const pages = ['home', 'rd', 'product', 'company', 'service', 'news', 'join', 'team'];
+        function switchPage(pageId) {
+            pages.forEach(id => {
+                document.getElementById(id).classList.remove('active');
+            })
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
